@@ -10,5 +10,11 @@
     "url": "http://www.iracing.com/tracks/gateway-motorsports-park/",
     "prediction": "Legitimate",
     "confidence": "100.00%"
+  },
+  {
+    "timestamp": "2025-07-11 23:40:59",
+    "url": "https://discord.com",
+    "prediction": "Phishing",
+    "confidence": "91.25%"
   }
 ]
