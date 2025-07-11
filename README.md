@@ -38,8 +38,8 @@ A real-time web application that uses machine learning to detect phishing websit
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/c31791947/Threat-Detection-And-Resilience-Framework.git
-   cd Threat-Detection-And-Resilience-Framework
+   git clone https://github.com/maxtowsif/ml-phishing-detector.git
+   cd ml-phishing-detector
    ```
 
 2. **Install dependencies**
@@ -79,28 +79,13 @@ A real-time web application that uses machine learning to detect phishing websit
 ### ◈ Connect with Me
 - ◆ Email: [towsif.ahmed@example.com](mailto:towsif.ahmed@example.com)
 - ◆ LinkedIn: [linkedin.com/in/towsif-ahmed](https://linkedin.com/in/towsif-ahmed)
-- ◆ GitHub: [@c31791947](https://github.com/c31791947)
+- ◆ GitHub: [@maxtowsif](https://github.com/maxtowsif)
 - ◆ Portfolio: [towsif-ahmed.dev](https://towsif-ahmed.dev)
 
 ### ◈ Academic Project
 *"Enhancing Cybersecurity Readiness Through AI-Augmented Threat Detection and Resilience Framework"*  
 **MSc Project 2025** | University of Greenwich
 
-## ◆ Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## ◈ Security & Privacy
-
-- **Local Processing**: All analysis performed locally
-- **No External Calls**: URLs are not sent to third-party services
-- **Educational Use**: Designed for research and educational purposes
 
 ## ◆ License
 
@@ -116,6 +101,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ◆ for Cybersecurity Education**
+Thank you!
 
 </div>
