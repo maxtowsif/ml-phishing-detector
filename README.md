@@ -6,6 +6,14 @@
 
 The Threat Detection and Resilience Framework is a sophisticated phishing detection system powered by machine learning. Designed for real-time threat analysis and comprehensive security assessments, it features an intuitive web interface built with Streamlit. This allows both cybersecurity professionals and end-users to efficiently analyze URLs and detect potential phishing threats.
 
+## 🛠️ Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Framework-FF4B4B?logo=streamlit&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical-013243?logo=numpy&logoColor=white)
+
 ## 🚀 Quick Start
 
 ### Try Online Instantly
