@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2025-07-10 23:55:41",
+    "url": "https://www.google.com/",
+    "prediction": "Legitimate",
+    "confidence": "100.00%"
+  },
+  {
+    "timestamp": "2025-07-10 23:56:27",
+    "url": "http://www.shadetreetechnology.com/V4/validation/ba4b8bddd7958ecb8772c836c2969531",
+    "prediction": "Phishing",
+    "confidence": "100.00%"
+  },
+  {
+    "timestamp": "2025-07-10 23:57:27",
+    "url": "https://www.researchgate.net",
+    "prediction": "Legitimate",
+    "confidence": "73.00%"
+  },
+  {
+    "timestamp": "2025-07-14 10:30:15",
+    "url": "https://www.google.com/",
+    "prediction": "FEEDBACK: Legitimate",
+    "entry_type": "feedback",
+    "feedback_type": "Correct",
+    "feedback_comment": "This prediction was accurate - Google is definitely legitimate.",
+    "original_prediction": "Legitimate",
+    "original_confidence": "100.00%"
+  }
+]

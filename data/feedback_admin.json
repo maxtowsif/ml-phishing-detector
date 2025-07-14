@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2025-07-10 23:55:53",
+    "url": "https://www.google.com/",
+    "predicted_label": "Legitimate",
+    "confidence": "100.00%",
+    "user_feedback": "\ud83d\udc4d Correct",
+    "user_comment": "Nunc quam mauris, consectetur vel posuere interdum, auctor nec nunc. Maecenas eget magna in neque dictum viverra nec sit amet lectus."
+  },
+  {
+    "timestamp": "2025-07-10 23:56:44",
+    "url": "http://www.shadetreetechnology.com/V4/validation/ba4b8bddd7958ecb8772c836c2969531",
+    "predicted_label": "Phishing",
+    "confidence": "100.00%",
+    "user_feedback": "\ud83d\udc4d Correct",
+    "user_comment": "Vestibulum scelerisque, turpis at sagittis efficitur, libero nisl aliquam enim, eget eleifend ante sapien eu sem. Vivamus lacinia ante id nulla aliquam eleifend."
+  },
+  {
+    "timestamp": "2025-07-10 23:57:46",
+    "url": "https://www.researchgate.net",
+    "predicted_label": "Legitimate",
+    "confidence": "73.00%",
+    "user_feedback": "\ud83d\udc4d Correct",
+    "user_comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere massa et magna laoreet interdum. Donec facilisis, dolor at sollicitudin viverra, mi metus scelerisque diam, at faucibus massa lacus nec purus. Pellentesque aliquet mi id blandit viverra."
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2025-07-14 13:33:28",
+    "url": "https://www.airtelxstream.in",
+    "predicted_label": "Legitimate",
+    "confidence": "73.00%",
+    "user_feedback": "\ud83d\udc4d Correct",
+    "user_comment": "Correct Prediction",
+    "feedback_type": "Correct"
+  },
+  {
+    "timestamp": "2025-07-14 13:38:23",
+    "url": "https://srsrs.vercel.app/\t",
+    "predicted_label": "Phishing",
+    "confidence": "52.60%",
+    "user_feedback": "\ud83d\udc4d Correct",
+    "user_comment": "Correct it is a phishing link",
+    "feedback_type": "Correct"
+  }
+]

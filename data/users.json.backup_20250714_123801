@@ -1,0 +1,72 @@
+{
+  "admin@mscproject.com": {
+    "email": "admin@mscproject.com",
+    "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+    "created_at": "2025-07-13 12:00:00",
+    "last_login": "2025-07-13 12:00:00",
+    "role": "admin",
+    "status": "active"
+  },
+  "user@example.com": {
+    "email": "user@example.com",
+    "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+    "created_at": "2025-07-13 12:00:00",
+    "last_login": "2025-07-14 06:39:37",
+    "role": "user",
+    "status": "active"
+  },
+  "gege@popai.com": {
+    "email": "gege@popai.com",
+    "password_hash": "5f0448d0c9e4f42a4df246eb3597ae109ea0eecd08701cc56b23ede754f044cb",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "16477688c0e00699c6cfa4497a3612d7e83c532062b64b250fed8908128ed548",
+    "created_at": "2025-07-13 21:11:16",
+    "last_login": "2025-07-13 21:11:16",
+    "role": "user",
+    "status": "active"
+  },
+  "joji@music.com": {
+    "email": "joji@music.com",
+    "password_hash": "e481a94b12de02966c092743d4e054b42dea9c53b00fb73d37849d8da18e8bce",
+    "security_question": "What city were you born in?",
+    "security_answer_hash": "fb38a93fd89e1a5fc7852a5d7109e321d23a721a1899292273ac5a21dc4db378",
+    "created_at": "2025-07-13 22:27:10",
+    "last_login": "2025-07-13 22:56:21",
+    "role": "user",
+    "status": "active"
+  },
+  "post@post.org": {
+    "email": "post@post.org",
+    "password_hash": "55914829b0ec3033b668b6550c3bd5f6ff2125fbfa3a92eac1b74cd4439b3782",
+    "security_question": "What was your first pet's name?",
+    "security_answer_hash": "8b9699370b5e7e3dfba7ff02959a738ec285ed933ed295fe6d8866567b58c2c6",
+    "created_at": "2025-07-14 04:25:28",
+    "last_login": "2025-07-14 04:25:47",
+    "role": "user",
+    "status": "active"
+  },
+  "test@user.com": {
+    "email": "test@user.com",
+    "password_hash": "cf7854e15b5ef14ea58d1a34d4271197e1264ca7ee1fe3b07187ffd548a86565",
+    "security_question": "What city were you born in?",
+    "security_answer_hash": "40ace5b4f58193240d4006e6468fa37fdf64111407672475b0a804b4a76d0339",
+    "created_at": "2025-07-14 08:06:05",
+    "last_login": "2025-07-14 08:06:36",
+    "role": "user",
+    "status": "active"
+  },
+  "usertesting@user.org": {
+    "email": "usertesting@user.org",
+    "password_hash": "cf7854e15b5ef14ea58d1a34d4271197e1264ca7ee1fe3b07187ffd548a86565",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "c685a2c9bab235ccdd2ab0ea92281a521c8aaf37895493d080070ea00fc7f5d7",
+    "created_at": "2025-07-14 12:24:08",
+    "last_login": "2025-07-14 12:24:30",
+    "role": "user",
+    "status": "active"
+  }
+}

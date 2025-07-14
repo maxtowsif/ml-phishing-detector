@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Phishing Detector - Complete Project Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #8e44ad;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+        
+        .header-badge {
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-info {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-stack {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-stack h3 {
+            color: #ecf0f1;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #3498db;
+        }
+        
+        .architecture-diagram {
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .methodology-section {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .security-section {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            border: 2px solid #27ae60;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .module-section {
+            background: #ecf0f1;
+            border-left: 5px solid #9b59b6;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .flow-diagram {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 3px solid #3498db;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flow-diagram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .flow-diagram h4 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flowchart {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .flowchart-box {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            margin: 8px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flowchart-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .flowchart-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .flowchart-box:hover::before {
+            left: 100%;
+        }
+        
+        .flowchart-arrow {
+            color: #e74c3c;
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .flowchart-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .flowchart-horizontal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .api-section {
+            background: #e8f5e8;
+            border: 1px solid #27ae60;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .toc {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .toc a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            border-bottom: 1px solid #555;
+        }
+        
+        .toc a:hover {
+            color: #3498db;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ ML Phishing Detector - Complete Project Documentation</h1>
+        
+        <div class="project-info">
+            <h2 style="color: white; border: none; margin: 0;">Threat Detection & Resilience Framework</h2>
+            <p><strong>MSc Project 2025 | Author: Towsif Ahmed</strong></p>
+            <p>Advanced Machine Learning-Powered Phishing Detection System</p>
+            <p><strong>Last Updated:</strong> July 2025 | <strong>Version:</strong> 2.0</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Table of Contents</h3>
+            <a href="#overview">1. Project Overview</a>
+            <a href="#architecture">2. System Architecture</a>
+            <a href="#methodology">3. Machine Learning Methodology</a>
+            <a href="#modules">4. Core Modules</a>
+            <a href="#security">5. Security Features</a>
+            <a href="#pdf-reporting">6. Professional PDF Reporting</a>
+            <a href="#performance">7. Performance Metrics</a>
+            <a href="#installation">8. Installation & Setup</a>
+            <a href="#usage">9. Usage Guide</a>
+            <a href="#api">10. API Reference</a>
+            <a href="#deployment">11. Deployment</a>
+            <a href="#future">12. Future Enhancements</a>
+        </div>
+
+        <section id="overview">
+            <h2>🔍 1. Project Overview</h2>
+            
+            <div class="highlight">
+                <h4>🎯 Project Mission</h4>
+                <p>The Threat Detection and Resilience Framework is a sophisticated phishing detection system powered by machine learning, designed for real-time threat analysis and comprehensive security assessments. It features an intuitive web interface built with Streamlit for both cybersecurity professionals and end-users.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🤖 AI-Powered Detection</h4>
+                    <p>Random Forest Classifier with 30+ engineered features achieving 94.2% accuracy and 91.8% precision in phishing detection.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔒 Comprehensive Security Analysis</h4>
+                    <p>SSL validation, DNS analysis, WHOIS intelligence, HTTP security headers, and real-time threat assessment.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Advanced Analytics Dashboard</h4>
+                    <p>Real-time analytics with geographic threat mapping, user activity monitoring, and comprehensive reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>👥 Enhanced Multi-user Support</h4>
+                    <p>Role-based access control with Admin, Analyst, and User permissions with session management.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📂 Bulk Analysis & Export</h4>
+                    <p>Upload CSV files for batch URL analysis with comprehensive PDF reporting and multiple export options.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📋 Professional History Management</h4>
+                    <p>Integrated analysis history with feedback system, copy/download functionality, and professional PDF reports.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>💬 Enhanced Feedback System</h4>
+                    <p>Collect and track user feedback with comments and Correct/Incorrect ratings for continuous improvement.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔄 Smart Result Management</h4>
+                    <p>Automatic clearing of previous analysis results and intelligent session state management for optimal UX.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📄 Professional PDF Reporting</h4>
+                    <p>Comprehensive PDF reports with executive summaries, risk assessments, and actionable recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌍 Geographic Threat Intelligence</h4>
+                    <p>Geographic visualization of threat distribution and country-based risk analysis.</p>
+                </div>
+            </div>
+
+            <h3>🎯 Key Objectives</h3>
+            <ul>
+                <li><strong>Real-time Threat Detection:</strong> Immediate analysis of URLs for phishing indicators</li>
+                <li><strong>Comprehensive Security Assessment:</strong> Multi-layered security analysis approach</li>
+                <li><strong>User-friendly Interface:</strong> Intuitive web interface for all skill levels</li>
+                <li><strong>Scalable Architecture:</strong> Support for concurrent users and bulk analysis</li>
+                <li><strong>Educational Value:</strong> Detailed explanations for security awareness</li>
+                <li><strong>Enhanced User Experience:</strong> Smart result clearing and integrated feedback system</li>
+                <li><strong>Professional Reporting:</strong> Comprehensive PDF reports for analysis history and bulk results</li>
+                <li><strong>Data Export Capabilities:</strong> Copy and download functionality for all analysis data</li>
+            </ul>
+
+            <div class="success">
+                <h4>🚀 Recent Enhancements (Version 2.0 - July 2025)</h4>
+                <ul>
+                    <li><strong>Advanced Analytics Dashboard:</strong> Geographic threat mapping, interactive visualizations, and real-time analytics</li>
+                    <li><strong>Professional PDF Reporting:</strong> Comprehensive reports with executive summaries, risk assessments, and actionable recommendations</li>
+                    <li><strong>Enhanced Account Management:</strong> Multi-tab account interface with activity analytics and professional reporting</li>
+                    <li><strong>Smart Result Management:</strong> Automatic clearing of previous results and intelligent session state management</li>
+                    <li><strong>Geographic Threat Intelligence:</strong> Country-based threat visualization and risk analysis</li>
+                    <li><strong>Advanced Export Options:</strong> Copy to clipboard, CSV download, and PDF generation for all analysis data</li>
+                    <li><strong>Session Management:</strong> Enhanced session utilities with UI customization and preference management</li>
+                    <li><strong>Smart Recommendations Engine:</strong> Context-aware security recommendations and educational content</li>
+                    <li><strong>Improved Model Performance:</strong> Enhanced accuracy (94.2%) and precision (91.8%) metrics</li>
+                    <li><strong>Professional User Interface:</strong> Enhanced styling, better UX, and comprehensive error handling</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="architecture">
+            <h2>🏗️ 2. System Architecture</h2>
+
+            <div class="flow-diagram">
+                <h4>🏗️ System Architecture Overview</h4>
+                <div class="flowchart">
+                    <div class="flowchart-vertical">
+                        <div class="flowchart-box" style="background: linear-gradient(135deg, #e74c3c, #c0392b); font-size: 1.1em;">
+                            🌐 WEB INTERFACE (Streamlit)
+                        </div>
+                        <div class="flowchart-horizontal" style="gap: 15px;">
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">🔐 Authentication</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">📊 Dashboard</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">🔍 Detection</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">📈 Analysis</div>
+                        </div>
+                        <span class="flowchart-arrow" style="font-size: 2em;">↓</span>
+                        <div class="flowchart-box" style="background: linear-gradient(135deg, #f39c12, #e67e22); font-size: 1.1em;">
+                            ⚙️ CORE PROCESSING LAYER
+                        </div>
+                        <div class="flowchart-horizontal" style="gap: 15px;">
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #16a085, #1abc9c);">🧬 Feature Extraction</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #16a085, #1abc9c);">🤖 ML Model</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #16a085, #1abc9c);">🛡️ Security Analysis</div>
+                        </div>
+                        <span class="flowchart-arrow" style="font-size: 2em;">↓</span>
+                        <div class="flowchart-box" style="background: linear-gradient(135deg, #2c3e50, #34495e); font-size: 1.1em;">
+                            💾 DATA & STORAGE LAYER
+                        </div>
+                        <div class="flowchart-horizontal" style="gap: 15px;">
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #7f8c8d, #95a5a6);">👥 User Data</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #7f8c8d, #95a5a6);">📝 History</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #7f8c8d, #95a5a6);">💬 Feedback</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #7f8c8d, #95a5a6);">🗂️ Model Files</div>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #7f8c8d, #95a5a6);">📋 Logs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <h3>🛠️ Technology Stack</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Frontend Framework</h4>
+                        <ul>
+                            <li><strong>Streamlit:</strong> Web interface and user interaction</li>
+                            <li><strong>Plotly:</strong> Interactive charts and visualizations</li>
+                            <li><strong>HTML/CSS:</strong> Custom styling and components</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Machine Learning</h4>
+                        <ul>
+                            <li><strong>Scikit-learn:</strong> ML algorithms and preprocessing</li>
+                            <li><strong>Random Forest:</strong> Core classification algorithm</li>
+                            <li><strong>Feature Engineering:</strong> Custom feature extraction</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Security Analysis</h4>
+                        <ul>
+                            <li><strong>Requests:</strong> HTTP analysis and header inspection</li>
+                            <li><strong>ssl/socket:</strong> SSL certificate validation</li>
+                            <li><strong>dnspython:</strong> DNS record analysis</li>
+                            <li><strong>python-whois:</strong> Domain registration data</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Data Processing</h4>
+                        <ul>
+                            <li><strong>Pandas:</strong> Data manipulation and analysis</li>
+                            <li><strong>NumPy:</strong> Numerical computations</li>
+                            <li><strong>JSON:</strong> Data storage and configuration</li>
+                            <li><strong>Joblib:</strong> Model serialization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <div class="methodology-section">
+                <h2>🧠 3. Machine Learning Methodology</h2>
+
+                <h3>📊 Dataset and Training</h3>
+                <div class="highlight">
+                    <p><strong>Training Dataset:</strong> Over 10,000 labeled phishing and legitimate URLs from comprehensive threat intelligence sources.</p>
+                </div>
+
+                <h4>🔬 Feature Engineering Process</h4>
+                <ol>
+                    <li><strong>Lexical Features (13 features):</strong>
+                        <ul>
+                            <li>URL length, hostname length</li>
+                            <li>Special character counts (dots, hyphens, @, ?, &, |, /)</li>
+                            <li>Digit ratio and subdomain presence</li>
+                        </ul>
+                    </li>
+                    <li><strong>Security Features (8 features):</strong>
+                        <ul>
+                            <li>HTTPS presence and SSL certificate validation</li>
+                            <li>Suspicious keyword detection</li>
+                            <li>Domain age and IP address usage</li>
+                            <li>Path length and query parameter analysis</li>
+                        </ul>
+                    </li>
+                    <li><strong>Domain Features (9 features):</strong>
+                        <ul>
+                            <li>Top-level domain analysis</li>
+                            <li>Vowel/consonant ratios</li>
+                            <li>Character entropy calculation</li>
+                            <li>Domain reputation indicators</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>🎯 Model Selection and Training</h4>
+                <div class="flow-diagram">
+                    <h4>🧠 Machine Learning Pipeline</h4>
+                    <div class="flowchart">
+                        <div class="flowchart-vertical">
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #8e44ad, #9b59b6);">📊 Data Collection (10K+ URLs)</div>
+                            <span class="flowchart-arrow" style="font-size: 1.5em;">↓</span>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #2980b9, #3498db);">🧬 Feature Engineering (30+ Features)</div>
+                            <span class="flowchart-arrow" style="font-size: 1.5em;">↓</span>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">🔧 Feature Selection (RFECV)</div>
+                            <span class="flowchart-arrow" style="font-size: 1.5em;">↓</span>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #f39c12, #e67e22);">⚖️ Data Preprocessing (StandardScaler)</div>
+                            <span class="flowchart-arrow" style="font-size: 1.5em;">↓</span>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">🌲 Random Forest Training (100 Trees)</div>
+                            <span class="flowchart-arrow" style="font-size: 1.5em;">↓</span>
+                            <div class="flowchart-box" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">✅ Model Validation (5-Fold CV)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+# Random Forest Classifier Configuration
+Algorithm: Random Forest
+Estimators: 100 trees
+Feature Selection: RFECV (Recursive Feature Elimination with Cross-Validation)
+Preprocessing: StandardScaler for feature normalization
+Validation: 5-fold cross-validation
+                </div>
+
+                <div class="performance-metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">94.2%</div>
+                        <div>Accuracy</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">91.8%</div>
+                        <div>Precision</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">96.5%</div>
+                        <div>Recall</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">94.1%</div>
+                        <div>F1-Score</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">30+</div>
+                        <div>Features</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10K+</div>
+                        <div>Training URLs</div>
+                    </div>
+                </div>
+
+                <h4>🔧 Feature Selection Process</h4>
+                <p>The system employs Recursive Feature Elimination with Cross-Validation (RFECV) to identify the most predictive features:</p>
+                <ul>
+                    <li><strong>Initial Feature Set:</strong> 30+ engineered features</li>
+                    <li><strong>Selection Method:</strong> RFECV with 5-fold cross-validation</li>
+                    <li><strong>Optimization Metric:</strong> F1-score for balanced performance</li>
+                    <li><strong>Result:</strong> Optimal subset of features for maximum accuracy</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="modules">
+            <h2>🧩 4. Core Modules</h2>
+
+            <div class="module-section">
+                <h3>📱 app.py - Main Application Controller</h3>
+                <p><strong>Primary Functions:</strong></p>
+                <ul>
+                    <li>Streamlit application initialization and configuration</li>
+                    <li>User interface orchestration and tab management</li>
+                    <li>Analysis workflow coordination with smart result clearing</li>
+                    <li>Bulk URL processing with concurrent execution</li>
+                    <li>PDF report generation and export functionality</li>
+                    <li>Session state management and persistence</li>
+                    <li>Real-time progress tracking for bulk operations</li>
+                </ul>
+                <div class="code-block">
+Key Features:
+- Multi-tab interface (Detection, Dashboard, Bulk Analysis, History, Account)
+- Smart result clearing for clean user experience
+- Concurrent URL processing (ThreadPoolExecutor)
+- Session state management and persistence
+- Export capabilities (CSV, PDF, Copy to Clipboard)
+- Real-time progress tracking for bulk operations
+- Professional PDF report generation
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>🔐 auth.py - Authentication & Authorization</h3>
+                <p><strong>Security Implementation:</strong></p>
+                <ul>
+                    <li>Bcrypt password hashing with unique salts</li>
+                    <li>Role-based access control (Admin, Analyst, User)</li>
+                    <li>Session management with persistent storage</li>
+                    <li>Security questions for password recovery</li>
+                    <li>Permission-based route protection</li>
+                </ul>
+                <div class="code-block">
+User Roles and Permissions:
+- Admin: Full system access including dashboard and bulk analysis
+- Analyst: Detection, bulk analysis, dashboard access
+- User: Basic detection and account management
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>🧠 model.py - Machine Learning Engine</h3>
+                <p><strong>Core ML Functions:</strong></p>
+                <ul>
+                    <li>Pre-trained Random Forest model loading</li>
+                    <li>Feature scaling and normalization</li>
+                    <li>Prediction with confidence scoring</li>
+                    <li>Risk level classification</li>
+                    <li>Model artifact management</li>
+                </ul>
+                <div class="code-block">
+Model Pipeline:
+1. Feature vector construction
+2. StandardScaler normalization
+3. Random Forest prediction
+4. Confidence score calculation
+5. Risk level assignment (Very Low → High)
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>📊 features.py - Feature Extraction Engine</h3>
+                <p><strong>Feature Categories:</strong></p>
+                <ul>
+                    <li><strong>Basic Features:</strong> URL structure analysis</li>
+                    <li><strong>Security Features:</strong> SSL, HTTPS, suspicious keywords</li>
+                    <li><strong>Domain Features:</strong> TLD analysis, entropy calculation</li>
+                    <li><strong>Importance Scoring:</strong> Feature significance ranking</li>
+                </ul>
+                <div class="code-block">
+Feature Extraction Process:
+- URL parsing and component analysis
+- Security indicator evaluation
+- Domain characteristic computation
+- Feature importance calculation for visualization
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>🔍 url_analysis.py - Comprehensive Security Analysis</h3>
+                <p><strong>Security Analysis Components:</strong></p>
+                <ul>
+                    <li><strong>SSL Certificate Analysis:</strong> Chain validation, expiration, issuer verification</li>
+                    <li><strong>DNS Analysis:</strong> Multi-record resolution (A, MX, NS, TXT)</li>
+                    <li><strong>WHOIS Intelligence:</strong> Domain registration data and age analysis</li>
+                    <li><strong>HTTP Security:</strong> Headers analysis, response validation</li>
+                </ul>
+                <div class="code-block">
+Security Scoring Algorithm:
+- SSL Certificate Validity: 25 points
+- Domain Age (>1 year): 20 points
+- HTTPS Protocol: 15 points
+- DNS Resolution: 15 points
+- Security Headers: 15 points
+- Domain Reputation: 10 points
+Total: 100-point security score
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>📈 dashboard.py - Advanced Analytics Dashboard</h3>
+                <p><strong>Dashboard Features:</strong></p>
+                <ul>
+                    <li>Real-time threat statistics and metrics</li>
+                    <li>Detection trend visualization with interactive charts</li>
+                    <li>User activity monitoring and analytics</li>
+                    <li>System performance metrics and monitoring</li>
+                    <li>Geographic threat mapping and visualization</li>
+                    <li>Feature importance analysis and visualization</li>
+                    <li>Risk assessment and scoring</li>
+                    <li>Professional PDF report generation for geographic data</li>
+                </ul>
+                <div class="code-block">
+Advanced Features:
+- Geographic threat intelligence with country mapping
+- Interactive Plotly visualizations
+- Feature importance analysis
+- Risk meter and prediction distribution
+- URL breakdown analysis
+- Professional PDF report generation
+- Real-time data processing and visualization
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>💬 feedback.py - Enhanced User Feedback System</h3>
+                <p><strong>Comprehensive Feedback Collection:</strong></p>
+                <ul>
+                    <li>Analysis accuracy feedback with detailed comments and ratings</li>
+                    <li>False positive/negative reporting with validation</li>
+                    <li>User experience ratings and improvement suggestions</li>
+                    <li>Admin feedback review interface and analytics</li>
+                    <li>Feedback history with export functionality (copy/download CSV)</li>
+                    <li>Integrated tracking in user history with session management</li>
+                    <li>Professional feedback analytics and reporting</li>
+                </ul>
+                <div class="code-block">
+Enhanced Feedback Features:
+- Comment field with Correct/Incorrect radio selections
+- Feedback analytics with statistics and summaries
+- Integration with analysis history for unified view
+- Session-based state management and persistence
+- Export options with professional formatting
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>📝 logger.py - Professional History Management</h3>
+                <p><strong>Comprehensive Logging & History:</strong></p>
+                <ul>
+                    <li>Detection result logging with comprehensive metadata</li>
+                    <li>User activity tracking and system performance monitoring</li>
+                    <li>Error logging and debugging with detailed information</li>
+                    <li>Bulk operation logging with progress tracking</li>
+                    <li>Professional PDF report generation with executive summaries</li>
+                    <li>Export options: Copy to clipboard, Download CSV, Generate PDF</li>
+                    <li>Separate feedback and analysis history management</li>
+                    <li>User statistics calculation and activity analytics</li>
+                </ul>
+                <div class="code-block">
+Professional History Features:
+- Integrated export options (Copy, CSV, PDF) with professional formatting
+- Comprehensive metrics and risk assessment in reports
+- Executive summaries and actionable recommendations
+- User statistics and activity analytics
+- Session-based history management with cleanup
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>👤 account.py & account_page.py - Account Management System</h3>
+                <p><strong>Comprehensive Account Management:</strong></p>
+                <ul>
+                    <li>User registration with security questions and password validation</li>
+                    <li>Password reset functionality with secure token-based recovery</li>
+                    <li>Multi-tab account interface (Profile, Activity, Account Actions)</li>
+                    <li>Account statistics and activity analytics with interactive charts</li>
+                    <li>User profile management and security settings</li>
+                    <li>Data management and privacy controls with cleanup options</li>
+                    <li>Professional account analytics and reporting</li>
+                </ul>
+                <div class="code-block">
+Integrated Account Features:
+- Secure user registration and authentication
+- Password management and security controls
+- Activity tracking and analytics visualization
+- Data export and management capabilities
+- Professional account interface and reporting
+- User-specific statistics and metrics
+                </div>
+            </div>
+
+            <div class="module-section">
+                <h3>🔄 session_utils.py - Session Management</h3>
+                <p><strong>Enhanced Session Control:</strong></p>
+                <ul>
+                    <li>UI settings initialization and management</li>
+                    <li>Session preferences loading and validation</li>
+                    <li>Font size and theme management</li>
+                    <li>User interface customization and personalization</li>
+                    <li>Session state persistence and cleanup</li>
+                </ul>
+            </div>
+
+            <div class="module-section">
+                <h3>📊 recommendations.py - Smart Recommendations Engine</h3>
+                <p><strong>Intelligent Recommendation System:</strong></p>
+                <ul>
+                    <li>Security-based recommendations from analysis results</li>
+                    <li>Personalized user recommendations based on history</li>
+                    <li>General cybersecurity tips and best practices</li>
+                    <li>Risk-based action recommendations and guidance</li>
+                    <li>Learning resources and educational content</li>
+                    <li>Dynamic recommendation generation based on context</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="security">
+            <div class="security-section">
+                <h2>🛡️ 5. Security Features</h2>
+
+                <h3>🔐 Data Protection</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>🔒 Secure Authentication</h4>
+                        <ul>
+                            <li>Bcrypt password hashing with unique salts</li>
+                            <li>Session-based authentication</li>
+                            <li>Automatic session timeout</li>
+                            <li>Password strength validation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🛡️ Session Security</h4>
+                        <ul>
+                            <li>Encrypted session storage</li>
+                            <li>Session isolation between users</li>
+                            <li>Automatic cleanup mechanisms</li>
+                            <li>Cross-session state protection</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>✅ Input Validation</h4>
+                        <ul>
+                            <li>Comprehensive URL sanitization</li>
+                            <li>Input type validation</li>
+                            <li>XSS prevention measures</li>
+                            <li>Injection attack protection</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔍 Error Handling</h4>
+                        <ul>
+                            <li>Secure error messages</li>
+                            <li>Information disclosure prevention</li>
+                            <li>Graceful failure handling</li>
+                            <li>Detailed logging for debugging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>🔒 Privacy Compliance</h3>
+                <div class="success">
+                    <h4>📋 Data Minimization Principles</h4>
+                    <ul>
+                        <li><strong>Essential Data Only:</strong> Collection limited to analysis requirements</li>
+                        <li><strong>User Control:</strong> Complete control over personal data and history</li>
+                        <li><strong>Local Storage:</strong> All data stored locally with user isolation</li>
+                        <li><strong>No External Tracking:</strong> Analysis performed locally for privacy</li>
+                    </ul>
+                </div>
+
+                <h3>🔧 Security Analysis Engine</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Analysis Type</th>
+                            <th>Components</th>
+                            <th>Security Checks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SSL Validation</td>
+                            <td>Certificate chain, expiration, issuer</td>
+                            <td>Chain verification, validity period, trusted CA</td>
+                        </tr>
+                        <tr>
+                            <td>DNS Analysis</td>
+                            <td>A, MX, NS, TXT records</td>
+                            <td>Resolution status, record count, configuration</td>
+                        </tr>
+                        <tr>
+                            <td>WHOIS Intelligence</td>
+                            <td>Registration data, domain age</td>
+                            <td>Creation date, registrar verification, age analysis</td>
+                        </tr>
+                        <tr>
+                            <td>HTTP Security</td>
+                            <td>Headers, response validation</td>
+                            <td>Security headers, redirect analysis, status codes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="pdf-reporting">
+            <h2>📄 6. Professional PDF Reporting</h2>
+
+            <div class="success">
+                <h4>🎯 Comprehensive Report Generation</h4>
+                <p>The system now features professional PDF report generation for both user history and bulk analysis results, providing comprehensive security insights and actionable recommendations.</p>
+            </div>
+
+            <h3>📋 PDF Report Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📊 Executive Summary</h4>
+                    <ul>
+                        <li>Professional overview of analysis results</li>
+                        <li>Total URLs analyzed and key findings</li>
+                        <li>Analysis methodology explanation</li>
+                        <li>System capabilities overview</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>📈 Key Metrics</h4>
+                    <ul>
+                        <li>Detection statistics (phishing vs legitimate)</li>
+                        <li>Performance metrics (confidence, risk scores)</li>
+                        <li>Security metrics (SSL, DNS validation)</li>
+                        <li>Percentage breakdowns and averages</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>⏰ Analysis Period</h4>
+                    <ul>
+                        <li>Start and end dates of analysis</li>
+                        <li>Time range of historical data</li>
+                        <li>Analysis duration tracking</li>
+                        <li>Temporal context for results</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>⚠️ Risk Assessment</h4>
+                    <ul>
+                        <li>Overall risk level classification</li>
+                        <li>Detailed risk assessment description</li>
+                        <li>Threat percentage analysis</li>
+                        <li>Action recommendations based on risk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🔧 Report Generation Process</h3>
+            <div class="flow-diagram">
+                <h4>📄 PDF Report Generation Workflow</h4>
+                <div class="flowchart">
+                    <div class="flowchart-horizontal">
+                        <div class="flowchart-box">📊 Data Preparation</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">📈 Metrics Calculation</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">🏗️ Report Structure</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">📝 Content Generation</div>
+                    </div>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <span class="flowchart-arrow" style="font-size: 2em;">↓</span>
+                    </div>
+                    <div class="flowchart-horizontal">
+                        <div class="flowchart-box">📥 Download Report</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">📄 PDF Creation</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">📋 Table Generation</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">⚠️ Risk Assessment</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>📋 Report Sections</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Content</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Executive Summary</strong></td>
+                        <td>Analysis overview and methodology</td>
+                        <td>Provide context and approach</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Metrics</strong></td>
+                        <td>Detection statistics and performance data</td>
+                        <td>Quantify analysis results</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analysis Period</strong></td>
+                        <td>Time range and duration</td>
+                        <td>Establish temporal context</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Risk Assessment</strong></td>
+                        <td>Risk level and detailed assessment</td>
+                        <td>Evaluate security posture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recommendations</strong></td>
+                        <td>Actionable security advice</td>
+                        <td>Guide security improvements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Detailed Results</strong></td>
+                        <td>Individual URL analysis table</td>
+                        <td>Provide granular data</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🎯 Report Types</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📊 User History Reports</h4>
+                    <ul>
+                        <li>Personal analysis history (excluding feedback)</li>
+                        <li>Individual user's detection patterns</li>
+                        <li>Personalized risk assessment</li>
+                        <li>User-specific recommendations</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>📂 Bulk Analysis Reports</h4>
+                    <ul>
+                        <li>Batch analysis results</li>
+                        <li>Comprehensive dataset analysis</li>
+                        <li>Organizational security insights</li>
+                        <li>Enterprise-level recommendations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>💡 Export Integration</h3>
+            <div class="highlight">
+                <h4>🔄 Seamless Export Options</h4>
+                <ul>
+                    <li><strong>Copy Analysis History:</strong> One-click copying of analysis data to clipboard</li>
+                    <li><strong>Download Analysis CSV:</strong> Export analysis history as CSV file</li>
+                    <li><strong>Generate PDF Report:</strong> Create comprehensive PDF reports with professional formatting</li>
+                    <li><strong>Integrated in History Tab:</strong> Export options directly in URL Analysis History section</li>
+                    <li><strong>Bulk Analysis Export:</strong> CSV and PDF export for bulk analysis results</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="performance">
+            <h2>⚡ 7. Performance Metrics</h2>
+
+            <div class="performance-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">&lt;2s</div>
+                    <div>Response Time</div>
+                    <small>Single URL Analysis</small>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">100+</div>
+                    <div>URLs/minute</div>
+                    <small>Bulk Analysis Mode</small>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">99.9%</div>
+                    <div>Uptime</div>
+                    <small>System Availability</small>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">10+</div>
+                    <div>Concurrent Users</div>
+                    <small>Session Isolation</small>
+                </div>
+            </div>
+
+            <h3>🚀 Performance Optimizations</h3>
+            <ul>
+                <li><strong>Concurrent Processing:</strong> ThreadPoolExecutor for bulk analysis</li>
+                <li><strong>Caching:</strong> Model artifacts loaded once at startup</li>
+                <li><strong>Efficient Feature Extraction:</strong> Optimized feature computation</li>
+                <li><strong>Resource Management:</strong> Automatic cleanup and memory management</li>
+                <li><strong>Error Recovery:</strong> Robust error handling for reliability</li>
+            </ul>
+
+            <h3>📊 Scalability Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Horizontal Scaling</h4>
+                    <p>Session isolation enables multiple concurrent users without interference</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Bulk Processing</h4>
+                    <p>Efficient batch analysis with progress tracking and result export</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Resource Optimization</h4>
+                    <p>Memory-efficient processing with automatic garbage collection</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Error Resilience</h4>
+                    <p>Graceful degradation and automatic error recovery mechanisms</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>💻 8. Installation & Setup</h2>
+
+            <h3>📋 Prerequisites</h3>
+            <div class="code-block">
+System Requirements:
+- Python 3.8 or higher
+- pip package manager
+- Active internet connection for analysis
+- 4GB+ RAM recommended
+- 1GB+ free disk space
+            </div>
+
+            <h3>🚀 Quick Installation</h3>
+            <div class="code-block">
+# 1. Clone the Repository
+git clone https://github.com/maxtowsif/ml-phishing-detector.git
+cd ml-phishing-detector
+
+# 2. Install Dependencies
+pip install -r requirements.txt
+
+# 3. Launch the Application
+streamlit run app.py
+
+# 4. Access the System
+# Navigate to http://localhost:8501 in your browser
+            </div>
+
+            <h3>📦 Dependencies</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Version</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>streamlit</td>
+                        <td>≥1.28.0</td>
+                        <td>Web interface framework</td>
+                    </tr>
+                    <tr>
+                        <td>scikit-learn</td>
+                        <td>≥1.3.0</td>
+                        <td>Machine learning algorithms</td>
+                    </tr>
+                    <tr>
+                        <td>plotly</td>
+                        <td>≥5.15.0</td>
+                        <td>Interactive visualizations</td>
+                    </tr>
+                    <tr>
+                        <td>requests</td>
+                        <td>≥2.31.0</td>
+                        <td>HTTP analysis</td>
+                    </tr>
+                    <tr>
+                        <td>dnspython</td>
+                        <td>≥2.4.0</td>
+                        <td>DNS record analysis</td>
+                    </tr>
+                    <tr>
+                        <td>python-whois</td>
+                        <td>≥0.8.0</td>
+                        <td>Domain registration data</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>⚙️ Configuration</h3>
+            <div class="highlight">
+                <h4>🔧 Default User Accounts</h4>
+                <ul>
+                    <li><strong>Admin:</strong> admin@mscproject.com / admin2025</li>
+                    <li><strong>Analyst:</strong> analyst@example.com / analyst123</li>
+                    <li><strong>User:</strong> user@example.com / password123</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="usage">
+            <h2>📖 9. Usage Guide</h2>
+
+            <h3>🔍 Single URL Analysis</h3>
+            <ol>
+                <li><strong>Login:</strong> Use provided credentials or register new account</li>
+                <li><strong>Navigate:</strong> Go to "Detection" tab</li>
+                <li><strong>Input URL:</strong> Enter URL to analyze</li>
+                <li><strong>Analyze:</strong> Click "Analyze URL" button</li>
+                <li><strong>Review Results:</strong> View prediction, confidence, and security analysis</li>
+                <li><strong>Provide Feedback:</strong> Optional accuracy feedback for improvement</li>
+            </ol>
+
+            <h3>📂 Bulk URL Analysis</h3>
+            <div class="flow-diagram">
+                <h4>🔄 Bulk Analysis Workflow</h4>
+                <div class="flowchart">
+                    <div class="flowchart-horizontal">
+                        <div class="flowchart-box">📁 Prepare CSV File</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">📤 Upload File</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">✅ Validate Format</div>
+                        <span class="flowchart-arrow">→</span>
+                        <div class="flowchart-box">🔍 Run Analysis</div>
+                    </div>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <span class="flowchart-arrow" style="font-size: 2em;">↓</span>
+                    </div>
+                    <div class="flowchart-horizontal">
+                        <div class="flowchart-box">📊 Export Results</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">👀 Review Results</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">📈 Monitor Progress</div>
+                        <span class="flowchart-arrow">←</span>
+                        <div class="flowchart-box">⚙️ Process URLs</div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>📊 CSV Format Requirements</h4>
+            <div class="code-block">
+Required CSV Format:
+| url |
+|-----|
+| https://example.com |
+| http://suspicious-site.com |
+| https://legitimate-site.org |
+
+Note: Only 'url' column is required. Additional columns are ignored.
+            </div>
+
+            <h3>📈 Dashboard Analytics</h3>
+            <p><strong>Available for Admin and Analyst roles:</strong></p>
+            <ul>
+                <li><strong>Key Metrics:</strong> Total scans, threats detected, success rate</li>
+                <li><strong>Trend Analysis:</strong> Detection trends over time</li>
+                <li><strong>User Activity:</strong> System usage statistics</li>
+                <li><strong>Threat Distribution:</strong> Phishing vs legitimate ratio</li>
+            </ul>
+
+            <h3>👤 Account Management</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Profile Management</h4>
+                    <ul>
+                        <li>View and update account information</li>
+                        <li>Change password and security settings</li>
+                        <li>Multi-tab interface with activity analytics</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>Analysis History</h4>
+                    <ul>
+                        <li>View past analyses with detailed results</li>
+                        <li>Filter by date and result type</li>
+                        <li>Export options: Copy, CSV, PDF reports</li>
+                        <li>Clear history and data management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🔄 Enhanced User Experience Features</h3>
+            <div class="success">
+                <h4>🎯 Smart Analysis Management</h4>
+                <ul>
+                    <li><strong>Automatic Result Clearing:</strong> Previous analysis results are automatically cleared when starting new analysis</li>
+                    <li><strong>Fresh Display:</strong> Each new analysis shows results in a clean, uncluttered interface</li>
+                    <li><strong>Container-based Display:</strong> Results are displayed in dedicated containers for proper clearing</li>
+                    <li><strong>Session Persistence:</strong> Maintains user preferences and settings across sessions</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="api">
+            <div class="api-section">
+                <h2>🔌 10. API Reference</h2>
+
+                <h3>🧠 Core Analysis Functions</h3>
+                
+                <h4>model.predict_phishing(url)</h4>
+                <div class="code-block">
+Parameters:
+- url (str): URL to analyze
+
+Returns:
+- dict: {
+    'prediction': 'Phishing' or 'Legitimate',
+    'confidence': float (0-1),
+    'risk_score': float (0-100),
+    'risk_level': 'Very Low' | 'Low' | 'Medium' | 'High',
+    'model_used': 'Random Forest'
+  }
+                </div>
+
+                <h4>features.extract_features(url)</h4>
+                <div class="code-block">
+Parameters:
+- url (str): URL for feature extraction
+
+Returns:
+- dict: {
+    'length_url': int,
+    'nb_dots': int,
+    'https': bool,
+    'ssl_valid': bool,
+    'suspicious_keywords': int,
+    'feature_importance': dict,
+    ... (30+ features)
+  }
+                </div>
+
+                <h4>url_analysis.analyze_url_security(url)</h4>
+                <div class="code-block">
+Parameters:
+- url (str): URL for security analysis
+
+Returns:
+- dict: {
+    'ssl_info': {...},
+    'dns_info': {...},
+    'whois_info': {...},
+    'http_info': {...},
+    'security_score': float (0-100),
+    'risk_factors': list,
+    'recommendations': list
+  }
+                </div>
+
+                <h3>🔐 Authentication Functions</h3>
+                
+                <h4>auth.check_permission(permission)</h4>
+                <div class="code-block">
+Parameters:
+- permission (str): Required permission
+
+Returns:
+- bool: True if user has permission
+
+Permissions:
+- 'detection': Basic URL analysis
+- 'bulk': Bulk analysis capability
+- 'dashboard': Analytics dashboard access
+- 'admin': Administrative functions
+                </div>
+            </div>
+        </section>
+
+        <section id="deployment">
+            <h2>🚀 11. Deployment</h2>
+
+            <h3>☁️ Cloud Deployment Options</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Streamlit Cloud</h4>
+                    <ul>
+                        <li>Easy one-click deployment</li>
+                        <li>GitHub integration</li>
+                        <li>Automatic updates</li>
+                        <li>Free tier available</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>Heroku</h4>
+                    <ul>
+                        <li>Container-based deployment</li>
+                        <li>Scalable infrastructure</li>
+                        <li>Add-on integrations</li>
+                        <li>Custom domain support</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>AWS/Azure/GCP</h4>
+                    <ul>
+                        <li>Enterprise-grade infrastructure</li>
+                        <li>Advanced scaling options</li>
+                        <li>Security compliance</li>
+                        <li>Integration with cloud services</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>Docker Containers</h4>
+                    <ul>
+                        <li>Consistent environments</li>
+                        <li>Easy orchestration</li>
+                        <li>Microservices architecture</li>
+                        <li>CI/CD integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🐳 Docker Deployment</h3>
+            <div class="code-block">
+# Dockerfile example
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+# Build and run
+docker build -t ml-phishing-detector .
+docker run -p 8501:8501 ml-phishing-detector
+            </div>
+
+            <h3>⚙️ Production Considerations</h3>
+            <ul>
+                <li><strong>Security:</strong> HTTPS encryption, secure headers, input validation</li>
+                <li><strong>Performance:</strong> Load balancing, caching, database optimization</li>
+                <li><strong>Monitoring:</strong> Application metrics, error tracking, uptime monitoring</li>
+                <li><strong>Backup:</strong> Regular data backups, disaster recovery procedures</li>
+                <li><strong>Compliance:</strong> GDPR, data protection regulations adherence</li>
+            </ul>
+        </section>
+
+        <section id="future">
+            <h2>🔮 12. Future Enhancements</h2>
+
+            <h3>🚀 Planned Features</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🤖 AI Improvements</h4>
+                    <ul>
+                        <li>Deep learning models (CNN, LSTM)</li>
+                        <li>Ensemble methods</li>
+                        <li>Real-time model updates</li>
+                        <li>Active learning integration</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>🔌 API Development</h4>
+                    <ul>
+                        <li>RESTful API endpoints</li>
+                        <li>Webhook integrations</li>
+                        <li>Third-party integrations</li>
+                        <li>SDK development</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Advanced Analytics</h4>
+                    <ul>
+                        <li>Threat intelligence feeds</li>
+                        <li>Predictive analytics</li>
+                        <li>Anomaly detection</li>
+                        <li>Custom reporting</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h4>🔗 Integrations</h4>
+                    <ul>
+                        <li>Browser extensions</li>
+                        <li>Email security plugins</li>
+                        <li>SIEM integrations</li>
+                        <li>Threat sharing platforms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🎯 Research Directions</h3>
+            <ul>
+                <li><strong>Zero-day Phishing Detection:</strong> Novel attack pattern recognition</li>
+                <li><strong>Multilingual Support:</strong> International domain and language analysis</li>
+                <li><strong>Mobile Optimization:</strong> Mobile-specific phishing techniques</li>
+                <li><strong>Behavioral Analysis:</strong> User interaction pattern analysis</li>
+                <li><strong>Federated Learning:</strong> Collaborative model training without data sharing</li>
+            </ul>
+
+            <h3>💡 Innovation Opportunities</h3>
+            <div class="highlight">
+                <h4>🔬 Emerging Technologies</h4>
+                <ul>
+                    <li><strong>Graph Neural Networks:</strong> Website relationship analysis</li>
+                    <li><strong>Natural Language Processing:</strong> Content-based detection</li>
+                    <li><strong>Computer Vision:</strong> Visual phishing detection</li>
+                    <li><strong>Blockchain:</strong> Immutable threat intelligence sharing</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            <h3>📄 Project Information</h3>
+            <p><strong>Project:</strong> Threat Detection & Resilience Framework</p>
+            <p><strong>Academic Year:</strong> MSc Project 2025</p>
+            <p><strong>Author:</strong> Towsif Ahmed</p>
+            <p><strong>Version:</strong> 2.0 (July 2025)</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/maxtowsif/ml-phishing-detector" style="color: #3498db;">github.com/maxtowsif/ml-phishing-detector</a></p>
+            <p><strong>License:</strong> MIT License</p>
+            <br>
+            <p><em>Advanced Machine Learning-Powered Phishing Detection System</em></p>
+            <p><em>Designed for Real-time Threat Analysis and Comprehensive Security Assessments</em></p>
+            <p><em>Enhanced with Professional Reporting, Geographic Intelligence, and Smart Analytics</em></p>
+        </div>
+    </div>
+</body>
+</html>

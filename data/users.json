@@ -1,0 +1,32 @@
+{
+  "admin@mscproject.com": {
+    "email": "admin@mscproject.com",
+    "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+    "created_at": "2025-07-13 12:00:00",
+    "last_login": "2025-07-13 12:00:00",
+    "role": "admin",
+    "status": "active"
+  },
+  "user@example.com": {
+    "email": "user@example.com",
+    "password_hash": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "2c26b46b68ffc68ff99b453c1d30413413422d706483bfa0f98a5e886266e7ae",
+    "created_at": "2025-07-13 12:00:00",
+    "last_login": "2025-07-14 13:28:12",
+    "role": "user",
+    "status": "active"
+  },
+  "test@test.org": {
+    "email": "test@test.org",
+    "password_hash": "63660f94e747c5fac35600109c69036730b0945da1be9df46d1632dc2b27f2d9",
+    "security_question": "What is your favorite color?",
+    "security_answer_hash": "c685a2c9bab235ccdd2ab0ea92281a521c8aaf37895493d080070ea00fc7f5d7",
+    "created_at": "2025-07-14 13:32:04",
+    "last_login": "2025-07-14 13:39:26",
+    "role": "user",
+    "status": "active"
+  }
+}
