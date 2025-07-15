@@ -4,11 +4,11 @@
 
 [theme]
 base = "dark"
-primaryColor = "#e3256b"                # Custom vibrant pink-magenta
-backgroundColor = "#1a1a1a"             # Dark main background
-secondaryBackgroundColor = "#2d2d2d"    # Sidebar and widget background
-textColor = "#ffffff"                   # White text
-font = "sans serif"                     # Clean, modern font
+primaryColor = "#C0C0C0"                # Silver (used in progress bar, buttons, etc.)
+backgroundColor = "#1a1a1a"             # Main dark background
+secondaryBackgroundColor = "#2d2d2d"    # Sidebar and widget containers
+textColor = "#ffffff"                   # White text for readability
+font = "sans serif"
 
 [server]
 enableCORS = false
