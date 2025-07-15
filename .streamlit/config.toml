@@ -4,7 +4,7 @@
 
 [theme]
 base = "dark"
-primaryColor = "#C084FC"                
+primaryColor = "#00FFFF"                
 backgroundColor = "#1a1a1a"             # Main dark background
 secondaryBackgroundColor = "#2d2d2d"    # Sidebar and widget containers
 textColor = "#ffffff"                   # White text for readability
