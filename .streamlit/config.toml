@@ -1,220 +1,27 @@
-# Streamlit Configuration for ML Phishing Detector
-# MSc Project 2025 - Threat Detection & Resilience Framework
-# Author: Towsif Ahmed
-
-[global]
-# Development mode for better error messages and debugging
-developmentMode = false
-
-# Show warning when there are potential performance issues
-showWarningOnDirectExecution = true
-
-# Suppress deprecation warnings
-suppressDeprecationWarnings = true
-
-# Data frame serialization method
-dataFrameSerialization = "legacy"
-
-# Maximum message size for websocket communications
-maxMessageSize = 200
-
-# Upload file size limit (200MB for bulk analysis)
-maxUploadSize = 200
-
-# Disable usage stats collection
-gatherUsageStats = false
-
-[server]
-# Server configuration
-port = 8501
-baseUrlPath = ""
-
-# Enable CORS for cross-origin requests
-enableCORS = false
-enableXsrfProtection = true
-
-# WebSocket compression
-enableWebsocketCompression = true
-
-# File watcher type for better performance on Windows
-fileWatcherType = "auto"
-
-# Server address - use localhost for security
-address = "localhost"
-
-# Headless mode (set to true for deployment)
-headless = false
-
-# Run on save - auto-reload when files change
-runOnSave = false
-
-# Allow running multiple apps
-allowRunOnSave = true
-
-# Cookie secret for session management
-cookieSecret = "threat-detection-system-secret-key-2025"
-
-[browser]
-# Browser settings
-serverAddress = "localhost"
-gatherUsageStats = false
-serverPort = 8501
-
-[ui]
-# Hide the "Made with Streamlit" footer
-hideTopBar = false
-hideSidebarNav = false
+# .streamlit/config.toml
 
 [theme]
-# Dark theme configuration matching the app's custom CSS
-primaryColor = "#666666"        # Neutral gray for buttons and accents
-backgroundColor = "#1a1a1a"     # Dark background
-secondaryBackgroundColor = "#2d2d2d"  # Secondary dark background
-textColor = "#ffffff"           # White text
-
-# Font configuration
+base = "dark"
+primaryColor = "#666666"
+backgroundColor = "#1a1a1a"
+secondaryBackgroundColor = "#2d2d2d"
+textColor = "#ffffff"
 font = "sans serif"
 
-# Base theme
-base = "dark"
-
-[runner]
-# Magic commands
-magicEnabled = true
-
-# Install missing packages automatically
-installTracer = false
-
-# Fix matplotlib backend
-fixMatplotlib = true
-
-# Post script runs
-postScriptGC = true
-
-# Fast rerun for better development experience
-fastReruns = true
-
-# Enforce serializable session state
-enforceSerializableSessionState = false
-
-[logger]
-# Logging configuration
-level = "error"
-messageFormat = "%(asctime)s.%(msecs)03d %(name)s: %(levelname)s: %(message)s"
+[server]
+enableCORS = false
+enableXsrfProtection = true
+headless = true
+port = 8501
+enableWebsocketCompression = true
 
 [client]
-# Client-side configuration
 caching = true
-displayEnabled = true
-
-# Show error details in UI
 showErrorDetails = true
 
-# Toolbar mode
-toolbarMode = "auto"
+[browser]
+gatherUsageStats = false
 
-[mapbox]
-# Mapbox token (if needed for geographical features)
-token = ""
-
-[deprecation]
-# Deprecation warnings
-showfileUploaderEncoding = false
-showImageFormat = false
-showPyplotGlobalUse = false
-
-[s3]
-# AWS S3 configuration (if needed for cloud storage)
-bucket = ""
-url = ""
-accessKeyId = ""
-secretAccessKey = ""
-region = "us-east-1"
-
-[sharing]
-# Streamlit sharing configuration
-email = ""
-
-[experimental]
-# Experimental features
-# Enable for better performance with large datasets
-useContainerWidth = true
-
-# Fragment runs for better performance
-fragmentRunsEnabled = false
-
-[plotly]
-# Plotly configuration
-# Set the default renderer for plotly figures
-renderer = "browser"
-
-[layout]
-# Layout configuration
-sidebar_state = "expanded"
-wide_mode = true
-
-[security]
-# Security settings for production deployment
-csrf_protection = true
-session_timeout = 3600  # 1 hour timeout
-secure_cookies = false  # Set to true in HTTPS production
-
-[performance]
-# Performance optimization
-cache_size_mb = 200
-enable_hashing = true
-allow_unsafe_html = true
-
-[features]
-# Feature flags
-enable_plotly = true
-enable_bulk_analysis = true
-enable_user_management = true
-enable_feedback_system = true
-enable_url_analysis = true
-enable_recommendations = true
-
-[file_paths]
-# Important file paths used by the application
-model_path = "rf_model.pkl"
-scaler_path = "scaler.pkl"
-features_path = "selected_features.pkl"
-users_data = "data/users.json"
-history_data = "data/history_{username}.json"
-feedback_data = "data/feedback_{username}.json"
-dataset_path = "data/dataset_phishing_clean.csv"
-
-[ml_model]
-# ML Model configuration
-confidence_threshold = 0.5
-risk_score_weights = {high = 0.8, medium = 0.5, low = 0.2}
-feature_importance_display = true
-
-[ui_customization]
-# UI Customization settings
-font_sizes = ["small", "medium", "large"]
-default_font_size = "medium"
-custom_css_enabled = true
-dark_theme_enabled = true
-
-[external_apis]
-# External API rate limiting and timeouts
-whois_timeout = 10
-dns_timeout = 5
-ssl_timeout = 10
-http_timeout = 15
-max_retries = 3
-
-[analytics]
-# Analytics and monitoring
-enable_user_analytics = true
-track_predictions = true
-track_feedback = true
-export_analytics = true
-
-[backup]
-# Backup configuration
-auto_backup_enabled = true
-backup_interval_hours = 24
-max_backup_files = 7
-backup_path = "data/backups/"
+[global]
+suppressDeprecationWarnings = true
+dataFrameSerialization = "legacy"
