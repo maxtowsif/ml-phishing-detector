@@ -4,7 +4,7 @@
 
 [theme]
 base = "dark"
-primaryColor = "#C0C0C0"                # Silver (used in progress bar, buttons, etc.)
+primaryColor = "#FF0000"                # Silver (used in progress bar, buttons, etc.)
 backgroundColor = "#1a1a1a"             # Main dark background
 secondaryBackgroundColor = "#2d2d2d"    # Sidebar and widget containers
 textColor = "#ffffff"                   # White text for readability
