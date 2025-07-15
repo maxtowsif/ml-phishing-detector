@@ -332,6 +332,7 @@ def show_risk_meter(confidence: float, risk_level: str):
         value=confidence * 100,
         domain={'x': [0, 1], 'y': [0, 1]},
         title={'text': f"Risk Level: {risk_level}"},
+        number={'font': {'size': 40}, 'valueformat': '.1f', 'suffix': '%'},
         gauge={
             'axis': {'range': [None, 100]},
             'bar': {'color': color},
@@ -349,7 +350,11 @@ def show_risk_meter(confidence: float, risk_level: str):
         }
     ))
     
-    fig.update_layout(height=300)
+    fig.update_layout(
+        height=300,
+        margin=dict(l=20, r=20, t=40, b=20),
+        font=dict(color="black", family="Arial")
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 
