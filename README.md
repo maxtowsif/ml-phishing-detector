@@ -19,7 +19,7 @@ The Threat Detection and Resilience Framework is a sophisticated phishing detect
 ### Try Online Instantly
 You can try the deployed Streamlit app without any installation:
 
-[Launch the App Online](https://ml-phishing-detector-9fnjjbmpunudnfpjycgnq8.streamlit.app/)
+[Launch the App Online](https://ml-phishing-detector-poszt2025.streamlit.app/)
 
 ### Prerequisites
 - Python 3.8 or higher
